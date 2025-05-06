@@ -1,0 +1,22 @@
+[project]
+name = "assign"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "ahmedraza16", email = "101126286+ahmedraza16@users.noreply.github.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "openai-agents>=0.0.14",
+    "python-dotenv>=1.1.0",
+    "rich>=14.0.0",
+]
+
+[project.scripts]
+assign = "assign:main"
+assign2 = "assign.global_run:run_global"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
