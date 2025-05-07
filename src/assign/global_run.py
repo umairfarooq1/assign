@@ -1,6 +1,5 @@
 import os
 
-import _asyncio
 from agents import Agent, AsyncOpenAI, OpenAIChatCompletionsModel, Runner
 from agents.run import RunConfig
 from dotenv import load_dotenv
@@ -9,6 +8,7 @@ from rich import print
 load_dotenv()
 
 api_key = os.getenv("gemini_api_key")
+name = os.getenv("name")
 
 
 external_client = AsyncOpenAI(
@@ -32,7 +32,11 @@ def run_global():
         tracing_disabled=True,
     )
 
-    result = Runner.run_sync(agent, "What is capital of Pakistan?", run_config=config)
+    result = Runner.run_sync(agent, "What is capital of Pakistan and KSA?", run_config=config)
 
     print("\n")
     print(result.final_output)
+    
+    with open("README.md", "a", encoding="utf-8") as readme_file:
+        readme_file.write("\n## Agent Response:\n")
+        readme_file.write(result.final_output + "\n")
