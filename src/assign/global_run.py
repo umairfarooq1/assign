@@ -32,7 +32,7 @@ def run_global():
         tracing_disabled=True,
     )
 
-    result = Runner.run_sync(agent, "What is capital of Pakistan and KSA?", run_config=config)
+    result = Runner.run_sync(agent, "What are the latest tecniques to investigation of police cases?", run_config=config)
 
     print("\n")
     print(result.final_output)
